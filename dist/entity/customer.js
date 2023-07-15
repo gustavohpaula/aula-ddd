@@ -1,10 +1,10 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 class Customer {
-    constructor(id, name, address) {
+    constructor(id, name) {
         this._active = true;
         this._id = id;
         this._name = name;
-        this._address = address;
     }
     validate() {
         if (this._name.length === 0) {
@@ -19,12 +19,15 @@ class Customer {
         this.validate();
     }
     activate() {
-        if (this._address.length === 0) {
+        if (this._address === undefined) {
             throw new Error("Adress is mandatory to activate a customer");
         }
         this._active = true;
     }
     deactivate() {
         this._active = false;
+    }
+    set Adress(address) {
+        this._address = address;
     }
 }

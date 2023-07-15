@@ -1,14 +1,15 @@
+import Adress from "./address";
+
 class Customer {
 
     _id: string;
     _name: string;
-    _address: string;
+    _address!: Adress;
     _active: boolean = true;
 
-    constructor(id: string, name: string, address: string) {
+    constructor(id: string, name: string) {
         this._id = id;
         this._name = name;
-        this._address = address;
     }
 
     validate(){
@@ -26,12 +27,16 @@ class Customer {
         this.validate();
     }
     activate() {
-        if(this._address.length === 0){
+        if(this._address === undefined){
             throw new Error("Adress is mandatory to activate a customer")
         }
         this._active = true;
     }
     deactivate() {
         this._active = false;
+    }
+
+    set Adress(address: Adress){
+        this._address = address
     }
 }
