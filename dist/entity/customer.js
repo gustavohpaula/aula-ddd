@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 class Customer {
     constructor(id, name) {
         this._active = true;
+        this._rewardPoints = 0;
         this._id = id;
         this._name = name;
         this.validate();
@@ -17,6 +18,12 @@ class Customer {
     }
     get name() {
         return this._name;
+    }
+    get rewardPoints() {
+        return this._rewardPoints;
+    }
+    get id() {
+        return this._id;
     }
     changeName(name) {
         this._name = name;
@@ -33,6 +40,9 @@ class Customer {
     }
     isActive() {
         return this._active;
+    }
+    addRewardPoints(points) {
+        this._rewardPoints += points;
     }
     set Adress(address) {
         this._address = address;
