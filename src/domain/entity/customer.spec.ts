@@ -25,7 +25,7 @@ describe("Customer unit tests", () => {
         const customer = new Customer("1", "Customer 1");
         const address = new Address("Street 1", 123, "1330-250", "São Paulo");
 
-        customer.Adress = address;
+        customer.Address = address;
 
        expect(customer.isActive()).toBe(true);
     })
@@ -44,7 +44,7 @@ describe("Customer unit tests", () => {
             const customer = new Customer("1", "Customer 1");
             customer.activate();
 
-        }).toThrowError("Adress is mandatory to activate a customer");    
+        }).toThrowError("Address is mandatory to activate a customer");    
        
     })
 })
