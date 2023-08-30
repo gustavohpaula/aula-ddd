@@ -1,40 +1,47 @@
-import { OrderItemModel } from "../../infrasctructure/db/sequelize/model/order-item.model";
-
 export default class OrderItem {
-
     private _id: string;
     private _productId: string;
     private _name: string;
     private _price: number;
-    private _quantity: number
-
-    constructor(id: string, name: string, price: number, productId: string, quantity: number) {
-        this._id = id;
-        this._productId = productId;
-        this._name = name;
-        this._price = price;
-        this._quantity = quantity;
+    private _quantity: number;
+    private _total: number;
+  
+    constructor(
+      id: string,
+      name: string,
+      price: number,
+      productId: string,
+      quantity: number
+    ) {
+      this._id = id;
+      this._name = name;
+      this._price = price;
+      this._productId = productId;
+      this._quantity = quantity;
+      this._total = this.total();
     }
+  
     get id(): string {
-        return this._id;
+      return this._id;
     }
-    get productId(): string {
-        return this._productId;
-    }
+  
     get name(): string {
-        return this._name
+      return this._name;
     }
-
-    get price(): number {
-        return this._price;
+  
+    get productId(): string {
+      return this._productId;
     }
+  
     get quantity(): number {
-        return this._quantity;
+      return this._quantity;
     }
-
-    orderItemTotal(): number {
-        return this._price * this._quantity;
+  
+    get price(): number {
+      return this._price;
     }
-
-
-}
+  
+    total(): number {
+      return this._price * this._quantity
+    }
+  }

@@ -9,7 +9,7 @@ import {
 	tableName: "customers",
 	timestamps: false,
 })
-export class CustomerModel extends Model {
+export default class CustomerModel extends Model {
   @PrimaryKey
   @Column
 	declare id: string;
