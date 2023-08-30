@@ -1,32 +1,32 @@
 import {
-  Table,
-  Model,
-  PrimaryKey,
-  Column
+	Table,
+	Model,
+	PrimaryKey,
+	Column
 } from "sequelize-typescript";
 
 @Table({
-  tableName: "customers",
-  timestamps: false,
+	tableName: "customers",
+	timestamps: false,
 })
-export default class CustomerModel extends Model {
+export class CustomerModel extends Model {
   @PrimaryKey
   @Column
-  declare id: string;
+	declare id: string;
 
   @Column({ allowNull: false })
   declare name: string;
 
-  @Column({ allowNull: false })
+  @Column({ allowNull: true })
   declare street: string;
 
-  @Column({ allowNull: false })
+  @Column({ allowNull: true })
   declare number: number;
 
-  @Column({ allowNull: false })
+  @Column({ allowNull: true })
   declare zipcode: string;
 
-  @Column({ allowNull: false })
+  @Column({ allowNull: true })
   declare city: string;
 
   @Column({ allowNull: false })

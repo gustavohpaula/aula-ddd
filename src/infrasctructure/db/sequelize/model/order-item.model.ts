@@ -1,24 +1,23 @@
 import {
-  Table,
-  Model,
-  PrimaryKey,
-  Column,
-  ForeignKey,
-  BelongsTo,
+	Table,
+	Model,
+	PrimaryKey,
+	Column,
+	ForeignKey,
+	BelongsTo
 } from "sequelize-typescript";
+import { OrderModel } from "./order.model";
 
-  import OrderModel from "./order.model";
-import ProductModel from "./product.model";
-
+import { ProductModel } from "./product.model";
 
 @Table({
-  tableName: "order_items",
-  timestamps: false,
+	tableName: "order_items",
+	timestamps: false,
 })
-export default class OrderItemModel extends Model {
+export class OrderItemModel extends Model {
   @PrimaryKey
   @Column
-  declare id: string;
+	declare id: string;
 
   @ForeignKey(() => ProductModel)
   @Column({ allowNull: false })
@@ -29,17 +28,17 @@ export default class OrderItemModel extends Model {
 
   @ForeignKey(() => OrderModel)
   @Column({ allowNull: false })
-  declare order_id: string;
+  declare orderId: string;
 
   @BelongsTo(() => OrderModel)
   declare order: OrderModel;
-
-  @Column({ allowNull: false })
-  declare quantity: number;
 
   @Column({ allowNull: false })
   declare name: string;
 
   @Column({ allowNull: false })
   declare price: number;
+
+  @Column({ allowNull: false })
+  declare quantity: number;
 }

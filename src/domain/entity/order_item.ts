@@ -1,4 +1,4 @@
-import OrderItemModel from "../../infrasctructure/db/sequelize/model/order-item.model";
+import { OrderItemModel } from "../../infrasctructure/db/sequelize/model/order-item.model";
 
 export default class OrderItem {
 
