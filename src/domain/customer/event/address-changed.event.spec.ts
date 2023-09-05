@@ -1,4 +1,5 @@
-import EventDispatcher from "../@shared/event-dispatcher"
+
+import EventDispatcher from "../../@shared/event/event-dispatcher";
 import AddressChangedEvent from "./address-changed.event";
 import sendConsoleLogWhenAddressChange from "./handler/send-console-log-when-address-change.handler";
 
